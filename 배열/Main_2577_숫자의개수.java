@@ -1,6 +1,5 @@
 package prac;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -21,30 +20,33 @@ import java.util.Scanner;
 public class Main_2577_숫자의개수 {
 
 	public static void main(String[] args) {
-
-		Scanner sc = new Scanner(System.in);
 		
+		Scanner sc = new Scanner(System.in);
+
 		int a = sc.nextInt();
 		int b = sc.nextInt();
 		int c = sc.nextInt();
-		
-		int mul = a * b * c;
-//		String to = Integer.toString(mul);
-		String to = String.valueOf(mul); // 17037300
+		sc.close();
 
-		int[] num = new int [10]; // 0,1,2,3,4,5,6,7,8,9
-		
-		for(int i=0; i<to.length(); i++) {
-			for(int j=0; j<num.length; j++) {
-				if(to.(j)) {
-					num[j]++;
-				}
-			}
+		// 배열 counts를 선언 범위는 count[0]~count[9]이다.
+		int[] counts = new int[10];
+
+		// a * b * c를 연산하고 그 값을 int형 변수 t에 저장
+		int t = a * b * c;
+
+		// while문 선언 t>0 일때 내부의 코드를 반복
+		while (t > 0) {
+			// count[t%10]에 1를 더한다
+			counts[t % 10]++;
+			
+			// t나누기 10 값을 변수 t에 저장
+			t /= 10;
 		}
-		System.out.println(Arrays.toString(num));
 		
-		
-		
+		for (int i = 0; i < counts.length; ++i) {
+			System.out.println(counts[i]);
+		}
+
 	}
 
 }
